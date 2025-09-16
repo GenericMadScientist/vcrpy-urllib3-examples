@@ -1,0 +1,30 @@
+name: Test
+
+on: push
+
+jobs:
+  urllib3_v1_test:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install dependencies
+        run: pip install vcrpy==7.0.0 urllib3==1.26.20
+
+      - name: Run test
+        run: python test.py
+
+  urllib3_v2_test:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install dependencies
+        run: pip install vcrpy==7.0.0 urllib3==2.5.0
+
+      - name: Run test
+        run: python test.py
